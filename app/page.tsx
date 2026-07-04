@@ -1396,7 +1396,7 @@ export default function Home() {
                 <span
                   style={{ color: "#93C5FD", fontWeight: 600, fontSize: 14 }}
                 >
-                  Brand & Product Gallery
+                  Product Highlights
                 </span>
               </div>
 
@@ -1410,7 +1410,7 @@ export default function Home() {
                   marginBottom: 14,
                 }}
               >
-                Featured Images
+                Built to Sell
               </h2>
               <p
                 style={{
@@ -1421,7 +1421,7 @@ export default function Home() {
                   margin: "0 auto",
                 }}
               >
-                Premium visuals that showcase your trackers and gadgets.
+                Real product shots that highlight design, durability, and everyday usefulness.
               </p>
             </div>
 
@@ -1498,7 +1498,7 @@ export default function Home() {
                       textTransform: "uppercase",
                     }}
                   >
-                    Hero Visual
+                    Product Spotlight
                   </div>
 
                   <div
@@ -1519,8 +1519,7 @@ export default function Home() {
                         margin: 0,
                       }}
                     >
-                      Premium product storytelling, with a little more breathing
-                      room.
+                      Designed to stand out in the hand and in the market.
                     </h3>
                     <p
                       style={{
@@ -1530,9 +1529,8 @@ export default function Home() {
                         margin: 0,
                       }}
                     >
-                      A less rigid composition feels more human. The main image
-                      stays dominant, while the inset card adds a second visual
-                      note instead of another grid box.
+                      Clear packaging, premium finish, and compact form make these
+                      trackers feel ready for everyday use.
                     </p>
                   </div>
 
@@ -1600,7 +1598,7 @@ export default function Home() {
                           marginBottom: 10,
                         }}
                       >
-                        Extra Frame
+                        Best Seller
                       </div>
                       <p
                         style={{
@@ -1610,12 +1608,12 @@ export default function Home() {
                           margin: 0,
                         }}
                       >
-                        A small offset card keeps the layout from feeling too
-                        symmetrical.
+                        A tighter crop helps customers focus on the product details
+                        that matter.
                       </p>
                     </div>
-                  </div>
                 </div>
+              </div>
               </div>
 
               <div
@@ -1631,27 +1629,27 @@ export default function Home() {
                   {
                     src: "/ad1.png",
                     alt: "ad1",
-                    label: "Campaign One",
+                    label: "Everyday Tracking",
                     caption:
-                      "Sits higher in the stack so the eye moves from the hero into the set naturally.",
+                      "Shows the compact form factor and clear front-facing presentation customers notice first.",
                     style: { minHeight: 265 },
                     objectPosition: "center top",
                   },
                   {
                     src: "/ad2.png",
                     alt: "ad2",
-                    label: "Campaign Two",
+                    label: "Premium Finish",
                     caption:
-                      "A second supporting tile with a calmer crop for visual balance.",
+                      "Highlights the clean packaging and polished look that supports a premium sale.",
                     style: { minHeight: 265 },
                     objectPosition: "center",
                   },
                   {
                     src: "/AD3.png",
                     alt: "AD3",
-                    label: "Wide Story",
+                    label: "Retail Ready",
                     caption:
-                      "The wide card closes the composition and keeps the section feeling editorial.",
+                      "The wide layout lets the product, packaging, and key benefits read at a glance.",
                     style: { minHeight: 255, gridColumn: "1 / -1" },
                     objectPosition: "center",
                   },
