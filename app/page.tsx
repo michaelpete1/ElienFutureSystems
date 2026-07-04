@@ -1519,7 +1519,7 @@ export default function Home() {
                         margin: 0,
                       }}
                     >
-                      Designed to stand out in the hand and in the market.
+                      Wouldnt you want to protect your property
                     </h3>
                     <p
                       style={{
@@ -1529,8 +1529,7 @@ export default function Home() {
                         margin: 0,
                       }}
                     >
-                      Clear packaging, premium finish, and compact form make these
-                      trackers feel ready for everyday use.
+                      get yours today.
                     </p>
                   </div>
 
@@ -1608,8 +1607,7 @@ export default function Home() {
                           margin: 0,
                         }}
                       >
-                        A tighter crop helps customers focus on the product details
-                        that matter.
+                        Millions of Nigerians are catching on.
                       </p>
                     </div>
                 </div>
@@ -1631,16 +1629,16 @@ export default function Home() {
                     alt: "ad1",
                     label: "Everyday Tracking",
                     caption:
-                      "Shows the compact form factor and clear front-facing presentation customers notice first.",
+                      "Very affordable ",
                     style: { minHeight: 265 },
                     objectPosition: "center top",
                   },
                   {
                     src: "/ad2.png",
                     alt: "ad2",
-                    label: "Premium Finish",
+                    label: "Premium trackers",
                     caption:
-                      "Highlights the clean packaging and polished look that supports a premium sale.",
+                      "More than enough distance covered.",
                     style: { minHeight: 265 },
                     objectPosition: "center",
                   },
@@ -1649,7 +1647,7 @@ export default function Home() {
                     alt: "AD3",
                     label: "Retail Ready",
                     caption:
-                      "The wide layout lets the product, packaging, and key benefits read at a glance.",
+                      "Get Free delivery today.",
                     style: { minHeight: 255, gridColumn: "1 / -1" },
                     objectPosition: "center",
                   },
