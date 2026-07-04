@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   description:
     "Premium GPS trackers, smart gadgets, and connected devices for your lifestyle.",
   icons: {
-    icon: "/icon.jpg",
+    icon: "/favicon.ico",
     apple: "/apple-icon.jpg",
   },
 };

@@ -549,7 +549,7 @@ function Hero() {
               "Heart Rate",
               "Sleep Monitor",
               "Water Resistant",
-              "7-Day Battery",
+              "1-Year Battery",
               "AI Insights",
             ].map((tag) => (
               <span
@@ -1040,7 +1040,7 @@ function About() {
               {/* SYSTEM STATUS */}
             </div>
             {[
-              { label: "Battery Life", val: "10 Days", color: "#22C55E" },
+              { label: "Battery Life", val: "1 Year", color: "#22C55E" },
               { label: "GPS Accuracy", val: "±5M", color: "#60A5FA" },
               { label: "Water Rating", val: "5ATM", color: "#A78BFA" },
               { label: "Device Rating", val: "4.8★", color: "#22C55E" },
@@ -1163,7 +1163,7 @@ function CTA() {
           }}
         >
           <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSfU9o6py1UyGn_DGMN7Z2ZOMnZObKH5Pk7zacnJXj4X9MFuHw/viewform?usp=dialog"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfvStIaOIt22s2MW0TyXsTsb2RyEEPeZmeSSIyo9XzFnbvqcw/viewform?usp=publish-editor"
             target="_blank"
             rel="noopener noreferrer"
             style={{
