@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, type ChangeEvent, type FormEvent } from "react";
 // -- Icons ------------------------------------------------------------
 // -- Data -------------------------------------------------------------
 function IconCloud() {
@@ -1084,6 +1084,183 @@ function About() {
   );
 }
 
+function ContactForm() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+  const [feedback, setFeedback] = useState("");
+
+  const handleChange = (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = event.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setStatus("loading");
+    setFeedback("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Submission failed.");
+      }
+
+      setStatus("success");
+      setFeedback("Thanks! Your inquiry has been received and saved securely.");
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } catch (error) {
+      setStatus("error");
+      setFeedback(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong while sending your message.",
+      );
+    }
+  };
+
+  return (
+    <form
+      onSubmit={handleSubmit}
+      style={{
+        display: "grid",
+        gap: 14,
+        textAlign: "left",
+        marginTop: 24,
+        marginBottom: 28,
+      }}
+    >
+      <div style={{ display: "grid", gap: 14, gridTemplateColumns: "1fr 1fr" }}>
+        <label
+          style={{ display: "grid", gap: 8, color: "#E2E8F0", fontSize: 14 }}
+        >
+          <span>Name</span>
+          <input
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            style={{
+              border: "1px solid #1E293B",
+              background: "rgba(15,23,42,0.8)",
+              color: "#fff",
+              borderRadius: 10,
+              padding: "12px 14px",
+            }}
+            placeholder="Your name"
+          />
+        </label>
+        <label
+          style={{ display: "grid", gap: 8, color: "#E2E8F0", fontSize: 14 }}
+        >
+          <span>Email</span>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            style={{
+              border: "1px solid #1E293B",
+              background: "rgba(15,23,42,0.8)",
+              color: "#fff",
+              borderRadius: 10,
+              padding: "12px 14px",
+            }}
+            placeholder="you@example.com"
+          />
+        </label>
+      </div>
+
+      <label
+        style={{ display: "grid", gap: 8, color: "#E2E8F0", fontSize: 14 }}
+      >
+        <span>Phone (optional)</span>
+        <input
+          name="phone"
+          value={formData.phone}
+          onChange={handleChange}
+          style={{
+            border: "1px solid #1E293B",
+            background: "rgba(15,23,42,0.8)",
+            color: "#fff",
+            borderRadius: 10,
+            padding: "12px 14px",
+          }}
+          placeholder="Your phone number"
+        />
+      </label>
+
+      <label
+        style={{ display: "grid", gap: 8, color: "#E2E8F0", fontSize: 14 }}
+      >
+        <span>What are you looking for?</span>
+        <textarea
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          required
+          rows={5}
+          style={{
+            border: "1px solid #1E293B",
+            background: "rgba(15,23,42,0.8)",
+            color: "#fff",
+            borderRadius: 10,
+            padding: "12px 14px",
+            resize: "vertical",
+          }}
+          placeholder="Tell us about your product interest or inquiry..."
+        />
+      </label>
+
+      <button
+        type="submit"
+        disabled={status === "loading"}
+        style={{
+          background: status === "loading" ? "#1D4ED8" : "#2563EB",
+          color: "#fff",
+          border: "none",
+          borderRadius: 10,
+          padding: "14px 20px",
+          fontSize: 15,
+          fontWeight: 600,
+          cursor: status === "loading" ? "wait" : "pointer",
+          transition: "all 0.2s",
+        }}
+      >
+        {status === "loading" ? "Submitting..." : "Send Inquiry"}
+      </button>
+
+      {feedback ? (
+        <p
+          style={{
+            margin: 0,
+            color: status === "success" ? "#86EFAC" : "#FCA5A5",
+            fontSize: 14,
+          }}
+        >
+          {feedback}
+        </p>
+      ) : null}
+    </form>
+  );
+}
+
 function CTA() {
   return (
     <section
@@ -1156,13 +1333,15 @@ function CTA() {
           details, and next steps. It takes less than a minute.
         </p>
 
+        <ContactForm />
+
         <div
           style={{
             display: "flex",
             flexDirection: "column",
             gap: 12,
             alignItems: "center",
-            marginBottom: 32,
+            marginBottom: 24,
           }}
         >
           <a

@@ -1,0 +1,48 @@
+import { NextResponse } from "next/server";
+import { createSupabaseServerClient } from "@/lib/supabase/server";
+
+export async function POST(request: Request) {
+  try {
+    const body = await request.json();
+    const name = typeof body?.name === "string" ? body.name.trim() : "";
+    const email = typeof body?.email === "string" ? body.email.trim() : "";
+    const phone = typeof body?.phone === "string" ? body.phone.trim() : "";
+    const message = typeof body?.message === "string" ? body.message.trim() : "";
+
+    if (!name || !email || !message) {
+      return NextResponse.json(
+        { error: "Name, email, and message are required." },
+        { status: 400 }
+      );
+    }
+
+    const supabase = createSupabaseServerClient();
+
+    const { error } = await supabase.from("contact_inquiries").insert({
+      name,
+      email,
+      phone,
+      message,
+      source: "website",
+    });
+
+    if (error) {
+      console.error("Supabase contact insert failed", error);
+      return NextResponse.json(
+        {
+          error: "Unable to save your inquiry right now.",
+          details: error.message,
+        },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    console.error("Contact API error", error);
+    return NextResponse.json(
+      { error: "Something went wrong while submitting your inquiry." },
+      { status: 500 }
+    );
+  }
+}
