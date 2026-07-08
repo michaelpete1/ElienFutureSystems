@@ -1,11 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
-
-// â”€â”€ Icons â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-// â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // -- Icons ------------------------------------------------------------
+// -- Data -------------------------------------------------------------
 function IconCloud() {
   return (
     <svg
@@ -186,7 +185,9 @@ const stats = [
   { value: "50+", label: "Countries" },
 ];
 
-const navLinks = ["About", "Contact"];
+const navLinks = ["About", "Services", "Contact"];
+
+// -- Components -------------------------------------------------------
 
 // â”€â”€ Components â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function Navbar() {
@@ -465,7 +466,8 @@ function Hero() {
               fontWeight: 400,
             }}
           >
-            Smart trackers, connected gadgets, and wearable technology designed to help you stay informed, organized, and connected.
+            Smart trackers, connected gadgets, and wearable technology designed
+            to help you stay informed, organized, and connected.
           </p>
 
           <div
@@ -868,7 +870,8 @@ function Services() {
               lineHeight: 1.7,
             }}
           >
-            From location monitoring to connected device control, advanced technology keeps you informed and connected.
+            From location monitoring to connected device control, advanced
+            technology keeps you informed and connected.
           </p>
         </div>
 
@@ -1337,10 +1340,32 @@ function Footer() {
           }}
         >
           <span style={{ color: "#1E293B", fontSize: 13 }}>
-            Â© 2025 Elien Future Systems. All rights reserved.
+            (c) 2025 Elien Future Systems. All rights reserved.
           </span>
-          <span style={{ color: "#1E293B", fontSize: 13 }}>
-            Privacy Policy Â· Terms of Service
+          <span
+            style={{
+              color: "#1E293B",
+              fontSize: 13,
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 0,
+            }}
+          >
+            <Link
+              href="/privacy-policy"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              Privacy Policy
+            </Link>
+            <span aria-hidden="true" style={{ margin: "0 10px" }}>
+              |
+            </span>
+            <Link
+              href="/terms-of-service"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              Terms of Service
+            </Link>
           </span>
         </div>
       </div>
@@ -1348,7 +1373,6 @@ function Footer() {
   );
 }
 
-// â”€â”€ Page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export default function Home() {
   return (
     <>
@@ -1410,7 +1434,7 @@ export default function Home() {
                   marginBottom: 14,
                 }}
               >
-                Built to Sell
+                Designed to Impress
               </h2>
               <p
                 style={{
@@ -1421,7 +1445,8 @@ export default function Home() {
                   margin: "0 auto",
                 }}
               >
-                Real product shots that highlight design, durability, and everyday usefulness.
+                Premium visuals that spotlight craftsmanship, durability, and
+                the everyday value customers instantly recognize.
               </p>
             </div>
 
@@ -1610,8 +1635,8 @@ export default function Home() {
                         Millions of Nigerians are catching on.
                       </p>
                     </div>
+                  </div>
                 </div>
-              </div>
               </div>
 
               <div
@@ -1628,8 +1653,7 @@ export default function Home() {
                     src: "/ad1.png",
                     alt: "ad1",
                     label: "Everyday Tracking",
-                    caption:
-                      "Very affordable ",
+                    caption: "Very affordable ",
                     style: { minHeight: 265 },
                     objectPosition: "center top",
                   },
@@ -1637,8 +1661,7 @@ export default function Home() {
                     src: "/ad2.png",
                     alt: "ad2",
                     label: "Premium trackers",
-                    caption:
-                      "More than enough distance covered.",
+                    caption: "More than enough distance covered.",
                     style: { minHeight: 265 },
                     objectPosition: "center",
                   },
@@ -1646,8 +1669,7 @@ export default function Home() {
                     src: "/AD3.png",
                     alt: "AD3",
                     label: "Retail Ready",
-                    caption:
-                      "Get Free delivery today.",
+                    caption: "Get Free delivery today.",
                     style: { minHeight: 255, gridColumn: "1 / -1" },
                     objectPosition: "center",
                   },
