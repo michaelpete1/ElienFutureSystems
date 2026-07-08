@@ -1135,129 +1135,173 @@ function ContactForm() {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      style={{
-        display: "grid",
-        gap: 14,
-        textAlign: "left",
-        marginTop: 24,
-        marginBottom: 28,
-      }}
-    >
-      <div style={{ display: "grid", gap: 14, gridTemplateColumns: "1fr 1fr" }}>
-        <label
-          style={{ display: "grid", gap: 8, color: "#E2E8F0", fontSize: 14 }}
-        >
-          <span>Name</span>
-          <input
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            style={{
-              border: "1px solid #1E293B",
-              background: "rgba(15,23,42,0.8)",
-              color: "#fff",
-              borderRadius: 10,
-              padding: "12px 14px",
-            }}
-            placeholder="Your name"
-          />
-        </label>
-        <label
-          style={{ display: "grid", gap: 8, color: "#E2E8F0", fontSize: 14 }}
-        >
-          <span>Email</span>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            style={{
-              border: "1px solid #1E293B",
-              background: "rgba(15,23,42,0.8)",
-              color: "#fff",
-              borderRadius: 10,
-              padding: "12px 14px",
-            }}
-            placeholder="you@example.com"
-          />
-        </label>
-      </div>
-
-      <label
-        style={{ display: "grid", gap: 8, color: "#E2E8F0", fontSize: 14 }}
-      >
-        <span>Phone (optional)</span>
-        <input
-          name="phone"
-          value={formData.phone}
-          onChange={handleChange}
-          style={{
-            border: "1px solid #1E293B",
-            background: "rgba(15,23,42,0.8)",
-            color: "#fff",
-            borderRadius: 10,
-            padding: "12px 14px",
-          }}
-          placeholder="Your phone number"
-        />
-      </label>
-
-      <label
-        style={{ display: "grid", gap: 8, color: "#E2E8F0", fontSize: 14 }}
-      >
-        <span>What are you looking for?</span>
-        <textarea
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-          required
-          rows={5}
-          style={{
-            border: "1px solid #1E293B",
-            background: "rgba(15,23,42,0.8)",
-            color: "#fff",
-            borderRadius: 10,
-            padding: "12px 14px",
-            resize: "vertical",
-          }}
-          placeholder="Tell us about your product interest or inquiry..."
-        />
-      </label>
-
-      <button
-        type="submit"
-        disabled={status === "loading"}
+    <>
+      <form
+        onSubmit={handleSubmit}
+        className="contact-form"
         style={{
-          background: status === "loading" ? "#1D4ED8" : "#2563EB",
-          color: "#fff",
-          border: "none",
-          borderRadius: 10,
-          padding: "14px 20px",
-          fontSize: 15,
-          fontWeight: 600,
-          cursor: status === "loading" ? "wait" : "pointer",
-          transition: "all 0.2s",
+          display: "grid",
+          gap: 14,
+          textAlign: "left",
+          marginTop: 24,
+          marginBottom: 28,
+          width: "100%",
+          maxWidth: 640,
+          marginLeft: "auto",
+          marginRight: "auto",
         }}
       >
-        {status === "loading" ? "Submitting..." : "Send Inquiry"}
-      </button>
-
-      {feedback ? (
-        <p
+        <div
+          className="contact-grid"
           style={{
-            margin: 0,
-            color: status === "success" ? "#86EFAC" : "#FCA5A5",
-            fontSize: 14,
+            display: "grid",
+            gap: 14,
+            gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
           }}
         >
-          {feedback}
-        </p>
-      ) : null}
-    </form>
+          <label
+            style={{ display: "grid", gap: 8, color: "#E2E8F0", fontSize: 14 }}
+          >
+            <span>Name</span>
+            <input
+              className="contact-input"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              style={{
+                border: "1px solid #1E293B",
+                background: "rgba(15,23,42,0.8)",
+                color: "#fff",
+                borderRadius: 10,
+                padding: "12px 14px",
+                width: "100%",
+                boxSizing: "border-box",
+              }}
+              placeholder="Your name"
+            />
+          </label>
+          <label
+            style={{ display: "grid", gap: 8, color: "#E2E8F0", fontSize: 14 }}
+          >
+            <span>Email</span>
+            <input
+              className="contact-input"
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              style={{
+                border: "1px solid #1E293B",
+                background: "rgba(15,23,42,0.8)",
+                color: "#fff",
+                borderRadius: 10,
+                padding: "12px 14px",
+                width: "100%",
+                boxSizing: "border-box",
+              }}
+              placeholder="you@example.com"
+            />
+          </label>
+        </div>
+
+        <label
+          style={{ display: "grid", gap: 8, color: "#E2E8F0", fontSize: 14 }}
+        >
+          <span>Phone (optional)</span>
+          <input
+            className="contact-input"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            style={{
+              border: "1px solid #1E293B",
+              background: "rgba(15,23,42,0.8)",
+              color: "#fff",
+              borderRadius: 10,
+              padding: "12px 14px",
+              width: "100%",
+              boxSizing: "border-box",
+            }}
+            placeholder="Your phone number"
+          />
+        </label>
+
+        <label
+          style={{ display: "grid", gap: 8, color: "#E2E8F0", fontSize: 14 }}
+        >
+          <span>What are you looking for?</span>
+          <textarea
+            className="contact-textarea"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            required
+            rows={5}
+            style={{
+              border: "1px solid #1E293B",
+              background: "rgba(15,23,42,0.8)",
+              color: "#fff",
+              borderRadius: 10,
+              padding: "12px 14px",
+              resize: "vertical",
+              width: "100%",
+              boxSizing: "border-box",
+            }}
+            placeholder="Tell us about your product interest or inquiry..."
+          />
+        </label>
+
+        <button
+          className="contact-button"
+          type="submit"
+          disabled={status === "loading"}
+          style={{
+            background: status === "loading" ? "#1D4ED8" : "#2563EB",
+            color: "#fff",
+            border: "none",
+            borderRadius: 10,
+            padding: "14px 20px",
+            fontSize: 15,
+            fontWeight: 600,
+            cursor: status === "loading" ? "wait" : "pointer",
+            transition: "all 0.2s",
+            width: "100%",
+          }}
+        >
+          {status === "loading" ? "Submitting..." : "Send Inquiry"}
+        </button>
+
+        {feedback ? (
+          <p
+            style={{
+              margin: 0,
+              color: status === "success" ? "#86EFAC" : "#FCA5A5",
+              fontSize: 14,
+            }}
+          >
+            {feedback}
+          </p>
+        ) : null}
+      </form>
+
+      <style jsx>{`
+        @media (max-width: 640px) {
+          .contact-form {
+            gap: 12px;
+            margin-top: 20px;
+            margin-bottom: 24px;
+          }
+          .contact-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .contact-button {
+            padding: 13px 16px;
+          }
+        }
+      `}</style>
+    </>
   );
 }
 
@@ -1268,6 +1312,7 @@ function CTA() {
       style={{ padding: "100px 1.5rem", background: "var(--navy)" }}
     >
       <div
+        className="contact-card"
         style={{
           maxWidth: 800,
           margin: "0 auto",
@@ -1345,6 +1390,7 @@ function CTA() {
           }}
         >
           <a
+            className="contact-link"
             href="https://docs.google.com/forms/d/e/1FAIpQLSfvStIaOIt22s2MW0TyXsTsb2RyEEPeZmeSSIyo9XzFnbvqcw/viewform?usp=publish-editor"
             target="_blank"
             rel="noopener noreferrer"
@@ -1363,6 +1409,9 @@ function CTA() {
               display: "inline-flex",
               alignItems: "center",
               justifyContent: "center",
+              textAlign: "center",
+              width: "100%",
+              maxWidth: 320,
             }}
             onMouseEnter={(e) => {
               (e.currentTarget as HTMLAnchorElement).style.background =
@@ -1386,6 +1435,19 @@ function CTA() {
           <span style={{ color: "#3B82F6" }}>+234 707 554 2200</span>
         </p>
       </div>
+
+      <style jsx>{`
+        @media (max-width: 640px) {
+          .contact-card {
+            padding: 40px 20px !important;
+            borderradius: 20px;
+          }
+          .contact-link {
+            max-width: 100% !important;
+            padding: 13px 18px;
+          }
+        }
+      `}</style>
     </section>
   );
 }
